@@ -4,83 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diabetes Prediction </title>
+<link rel="stylesheet" href="main.css">
+
 <style>
   body {
-    background-color: rgb(11, 26,51);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    margin-top: 20px;
+      
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
   }
-
-  .form-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    margin-top: 50px;
+  .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 800px;
   }
-
-  .form-container:hover {
-    transform: rotateY(5deg);
+  h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 25px;
+      color: #333333;
   }
-
-  h2 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-
   .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
   }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-    font-weight: bold;
+  label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: black;
   }
-
-  .form-group input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+  input[type="text"] {
+      padding: 12px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
   }
-
-  .submit-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  .form-row {
+      display: flex;
+      justify-content: space-between;
   }
+  .form-row .form-group {
+      flex: 1;
+      margin-right: 20px;
+  }
+  .form-row .form-group:last-child {
+      margin-right: 0;
+  }
+  .form-group-button {
+      display: flex;
+      justify-content: center;
+  }
+  button {
+      padding: 12px 25px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
 
-  .submit-btn:hover {
-    background-color: #45a049;
+  }
+  button:hover {
+      background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+      .container {
+          width: 90%;
+          margin: 0 5%;
+      }
+      .form-row {
+          flex-direction: column;
+      }
+      .form-row .form-group {
+          margin-right: 0;
+          margin-bottom: 20px;
+      }
+      .form-row .form-group:last-child {
+          margin-bottom: 0;
+      }
   }
 </style>
 </head>
 <body>
 
 <div class="form-container">
-  <h2>Diabetes Prediction  in women </h2>
+  <h2>Diabetes Prediction   </h2>
   <form id="diabetes-form" action="{{url_for('predict')}}" method="post">
     <div class="form-group">
       <label for="pregnancies">Pregnancies:</label>
